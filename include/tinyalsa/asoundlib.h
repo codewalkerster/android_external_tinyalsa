@@ -162,6 +162,7 @@ int pcm_mmap_commit(struct pcm *pcm, unsigned int offset, unsigned int frames);
 /* Start and stop a PCM channel that doesn't transfer data */
 int pcm_start(struct pcm *pcm);
 int pcm_stop(struct pcm *pcm);
+int pcm_prepare(struct pcm *pcm);
 
 /* Change avail_min after the stream has been opened with no need to stop the stream.
  * Only accepted if opened with PCM_MMAP and PCM_NOIRQ flags
