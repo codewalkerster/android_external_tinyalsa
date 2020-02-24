@@ -955,6 +955,10 @@ int pcm_close(struct pcm *pcm)
         munmap(pcm->mmap_buffer, pcm_frames_to_bytes(pcm, pcm->buffer_size));
     }
 
+    if (pcm->flags & PCM_IN) {
+        channalFlags = -1;
+        startCheckCount = 0;
+    }
     if (pcm->fd >= 0)
         close(pcm->fd);
     pcm->prepared = 0;
